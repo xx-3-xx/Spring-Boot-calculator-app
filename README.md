@@ -56,7 +56,7 @@ mvn -N io.takari:maven:wrapper
 chmod +x mvnw
 ```
 ## Our project structure:
-
+```
 calculator/
 ├── src/
 │   └── main/
@@ -70,6 +70,7 @@ calculator/
 ├── mvnw.cmd
 ├── pom.xml
 └── Dockerfile
+```
 
 <img width="476" alt="image" src="https://github.com/user-attachments/assets/8fd6b4e8-657f-4e2b-b228-ad5b9c2ff808">
 
