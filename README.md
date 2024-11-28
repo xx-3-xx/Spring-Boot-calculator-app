@@ -181,7 +181,7 @@ sudo docker run --platform linux/amd64 -p 8080:8080 lishan2023/calculator-app:la
 
 
 ...............................................................................................................................
-Finally, Deploy the application onto the GKE Kubernetes cluster: using Deployment and Service Manifest file.
+## Finally, Deploy the application onto the GKE Kubernetes cluster: using Deployment and Service Manifest file.
 
 <img width="1645" alt="image" src="https://github.com/user-attachments/assets/610f50ca-a71b-4a05-9004-39ee61f98c81">
 
