@@ -130,9 +130,27 @@ docker push yourdockerhubusername/calculator-app:latest
 ```
 
 
-...............................................................
-kjafgajks
+..............................................................................................................................
+**Important Note that**
+Sometimes, when we run the docker command in GKE cluster "sudo docker run -p 8080:8080 lishan2023/calculator-app:latest" then result got the error
+```
+WARNING: The requested image's platform (linux/arm64/v8) does not match the detected host platform (linux/amd64/v3) and no specific platform was requested
+exec /usr/local/openjdk-11/bin/java: exec format error
+```
+means that, 
+The error you're encountering indicates a platform mismatch between the Docker image you're trying to run and the architecture of your host system. The image lishan2023/calculator-app:latest appears to be built for linux/arm64, but your host system is running on linux/amd64 (a different CPU architecture). This is why you're seeing the error:
 
+```
+exec /usr/local/openjdk-11/bin/java: exec format error
+```
+This issue typically happens when trying to run an image built for a different CPU architecture than the one your system uses. Here's how you can resolve this:
+**Check Your Host's Architecture**
+```
+uname -m
+```
+>> If it outputs x86_64, you're using an amd64 (64-bit Intel/AMD) architecture.
+>>> If it outputs aarch64 or arm64, you're using an arm64 architecture.
+Since your error indicates that your system is running on linux/amd64, but the Docker image is built for linux/arm64, we need to resolve this architecture mismatch.
 
 
 
