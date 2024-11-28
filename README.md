@@ -131,7 +131,11 @@ docker push yourdockerhubusername/calculator-app:latest
 
 
 ..............................................................................................................................
-**Important Note that**
+
+
+
+## Important Note that:
+
 Sometimes, when we run the docker command in GKE cluster "sudo docker run -p 8080:8080 lishan2023/calculator-app:latest" then result got the error
 
 WARNING: The requested image's platform (linux/arm64/v8) does not match the detected host platform (linux/amd64/v3) and no specific platform was requested
