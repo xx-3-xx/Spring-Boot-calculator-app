@@ -30,6 +30,55 @@ Local Setup and Clone the repository
 git clone https://github.com/yourusername/Spring-Boot-calculator-app.git
 cd Spring-Boot-calculator-app
 ```
+**Build the project**
+```
+mvn clean package
+```
+Run the application
+```
+java -jar target/calculator-0.0.1-SNAPSHOT.jar
+```
+The application will be available at http://localhost:8080
+
+or if you get the error occurs during the mvn clean package, we need to create the Maven wrapper files first. Let's fix this by creating the necessary Maven files by following ways:
+
+**Create Maven Wrapper files:**
+```
+# Navigate to your project directory
+cd calculator
+
+# Initialize Maven Wrapper
+mvn -N io.takari:maven:wrapper
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
