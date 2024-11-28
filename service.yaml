@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: calculator-app-service
+  labels:
+    app: calculator-app
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80          # Port inside the cluster
+      targetPort: 8080  # Application port
+      nodePort: 30000   # Port accessible on the node (must be between 30000-32767)
+      protocol: TCP
+      name: http
+  selector:
+    app: calculator-app
