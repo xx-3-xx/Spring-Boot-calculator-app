@@ -110,8 +110,24 @@ lsof -i :8080
 ps aux | grep java
 ```
 
+**process of pushing your calculator application's Docker image to Docker Hub.**
+Login to Docker Hub from terminal:
+```
+# Login to Docker Hub
+docker login
+# Enter your Docker Hub username and password when prompted
+```
+Tag your Docker image:
+```
+# Format: docker tag local-image:tag username/repository:tag
+docker tag calculator-app yourdockerhubusername/calculator-app:latest
+```
 
-
+Push the image to Docker Hub:
+```
+# Push the image
+docker push yourdockerhubusername/calculator-app:latest
+```
 
 
 
