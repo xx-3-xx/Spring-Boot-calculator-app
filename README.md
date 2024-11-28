@@ -2,10 +2,51 @@ The Spring Boot Calculator Application is a robust web-based calculator that pro
 
 **Core Features**
 ```
-Basic Arithmetic Operations
-
-Addition (+)
-Subtraction (-)
-Multiplication (×)
-Division (÷)
+Basic arithmetic operations (Addition, Subtraction, Multiplication, Division)
+RESTful API endpoints
+Web-based user interface
+Docker support
+Error handling for invalid operations
+Real-time calculation
 ```
+**Technologies Used**
+```
+Java 11
+Spring Boot 2.7.0
+Maven
+Docker
+HTML/CSS/JavaScript
+RESTful API
+```
+**Prerequisites**
+```
+Java JDK 11 or higher
+Maven 3.6 or higher
+Docker 
+```
+**Getting Started**
+Local Setup and Clone the repository
+```
+git clone https://github.com/yourusername/Spring-Boot-calculator-app.git
+cd Spring-Boot-calculator-app
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
