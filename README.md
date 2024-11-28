@@ -158,12 +158,26 @@ uname -m
 >>> Since your error indicates that your system is running on linux/amd64, but the Docker image is built for linux/arm64, we need to resolve this architecture mismatch.
 
 
+**Use a Multi-Architecture Docker Image**
+Many Docker images are multi-architecture, meaning they can run on both arm64 and amd64 systems. If the image you're using is multi-architecture, Docker will automatically choose the right one. However, if it isn't, you can try forcing Docker to use the correct platform.
 
+**Rebuild the Image for Your Architecture**
+To build the image locally for linux/amd64, use the following commands:
+```
+docker build --platform linux/amd64 -t lishan2023/calculator-app:latest .
+```
+**Run the newly built image:**
 
+```
+sudo docker run -p 8080:8080 lishan2023/calculator-app:latest
+```
+**Force Docker to Use the Correct Platform**
+You can tell Docker to specifically pull or run the image for the linux/amd64 platform, even if the image was originally built for linux/arm64. Use the --platform flag to specify the architecture.
 
-
-
-
+Run the following command to force Docker to use the linux/amd64 architecture:
+```
+sudo docker run --platform linux/amd64 -p 8080:8080 lishan2023/calculator-app:latest
+```
 
 
 
