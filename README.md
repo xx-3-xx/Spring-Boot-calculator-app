@@ -110,7 +110,7 @@ lsof -i :8080
 ps aux | grep java
 ```
 
-**process of pushing your calculator application's Docker image to Docker Hub.**
+## Process of pushing your calculator application's Docker image to Docker Hub
 Login to Docker Hub from terminal:
 ```
 # Login to Docker Hub
