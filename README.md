@@ -51,10 +51,63 @@ cd calculator
 mvn -N io.takari:maven:wrapper
 ```
 
+**Make the Maven wrapper executable:**
+```
+chmod +x mvnw
+```
+## Our project structure:
+
+calculator/
+├── src/
+│   └── main/
+│       ├── java/
+│       └── resources/
+├── .mvn/
+│   └── wrapper/
+│       ├── maven-wrapper.jar
+│       └── maven-wrapper.properties
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+└── Dockerfile
+
+<img width="476" alt="image" src="https://github.com/user-attachments/assets/8fd6b4e8-657f-4e2b-b228-ad5b9c2ff808">
+
+**Build the Docker image:**
+```
+docker build -t <Image-Name:tag> .
+```
+**Run the container:**
+```
+docker run -p 8080:8080 <Image-Name:tag>
+```
+After running the calculator application container, you can check it in several ways:
+## Through your web browser:
+```
+#Open your browser and visit:
+http://localhost:8080
+```
+<img width="1626" alt="image" src="https://github.com/user-attachments/assets/6986f729-bbfe-408d-9e4c-5578f2a0b962">
 
 
+## Using curl command in terminal:
+```
+# Test the basic endpoint
+curl http://localhost:8080
 
+# Test the calculator API
+curl -X POST http://localhost:8080/api/calculator/calculate \
+-H "Content-Type: application/json" \
+-d '{"num1": 10, "num2": 5, "operation": "add"}'
+```
+## Check if the application is running:
+```
+# Check running processes on port 8080
+lsof -i :8080
 
+# Check Java processes
+ps aux | grep java
+```
 
 
 
