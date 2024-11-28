@@ -150,7 +150,7 @@ uname -m
 ```
 >> If it outputs x86_64, you're using an amd64 (64-bit Intel/AMD) architecture.
 >>> If it outputs aarch64 or arm64, you're using an arm64 architecture.
-Since your error indicates that your system is running on linux/amd64, but the Docker image is built for linux/arm64, we need to resolve this architecture mismatch.
+>>> Since your error indicates that your system is running on linux/amd64, but the Docker image is built for linux/arm64, we need to resolve this architecture mismatch.
 
 
 
