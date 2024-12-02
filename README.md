@@ -187,8 +187,7 @@ sudo docker run --platform linux/amd64 -p 8080:8080 lishan2023/calculator-app:la
 
 <img width="1613" alt="image" src="https://github.com/user-attachments/assets/13c97db7-46d5-4da2-a521-80162dd973fc">
 
-
-
+<img width="1237" alt="image" src="https://github.com/user-attachments/assets/b0b58499-2d18-427b-bce6-52fe5c632388">
 
 
 
