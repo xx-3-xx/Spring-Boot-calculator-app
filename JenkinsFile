@@ -18,16 +18,15 @@ pipeline {
             }
         }
 
-      stage('Build and Test') {
+    stage('Build and Test') {
     environment {
         JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64'
-        PATH = "${JAVA_HOME}/bin:${PATH}"
+        M2_HOME = '/usr/share/maven'
+        PATH = "${JAVA_HOME}/bin:${M2_HOME}/bin:${PATH}"
     }
     steps {
         sh '''
-            echo "Java version:"
-            java -version
-            echo "JAVA_HOME: $JAVA_HOME"
+            mvn -version
             mvn clean package
         '''
     }
