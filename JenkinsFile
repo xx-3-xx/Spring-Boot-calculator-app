@@ -10,14 +10,12 @@ pipeline {
         stage('Checkout') {
             steps {
                 sh 'echo passed'
-               // git branch: 'main', url: 'https://github.com/YourUsername/currency-converter.git'
             }
         }
 
         stage('Build and Test') {
             steps {
                 sh 'ls -ltr'
-                // Build the project and create JAR file
                 sh 'mvn clean package'
             }
         }
@@ -28,27 +26,10 @@ pipeline {
             }
             steps {
                 withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-                    sh '''
-                        cd mvn sonar:sonar \
-                        -Dsonar.login=$SONAR_AUTH_TOKEN \
-                        -Dsonar.host.url=${SONAR_URL} \
-                        -Dsonar.projectKey=currency-converter \
-                        -Dsonar.projectName=currency-converter
-                    '''
+                    sh 'mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
                 }
             }
         }
-
-         stage('Static Code Analysis') {
-      environment {
-        SONAR_URL = "http://34.94.37.99:9000"
-      }
-      steps {
-        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-          sh 'mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
-        }
-      }
-    }
 
         stage('Build and Push Docker Image') {
             environment {
@@ -57,21 +38,16 @@ pipeline {
             }
             steps {
                 script {
-                    // Login to Docker Hub
                     withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                         sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
+                        sh "docker build -t ${DOCKER_IMAGE} ."
+                        sh "docker push ${DOCKER_IMAGE}"
                     }
-                    
-                    // Build Docker image
-                    sh 'docker build -t ${DOCKER_IMAGE} .'
-                    
-                    // Push Docker image
-                    sh "docker push ${DOCKER_IMAGE}"
                 }
             }
         }
 
-        stage('Trivy Image Scanning security check') {
+        stage('Trivy Image Scanning') {
             steps {
                 sh "trivy image lishan2023/currency-converter:${BUILD_NUMBER}"
             }
