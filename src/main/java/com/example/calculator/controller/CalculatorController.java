@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/calculator")
 public class CalculatorController {
 
-    @Autowired
-    private CalculatorService calculatorService;
+    private final CalculatorService calculatorService;
+
+    public CalculatorController(CalculatorService calculatorService) {
+        this.calculatorService = calculatorService;
+    }
 
     @PostMapping("/calculate")
     public double calculate(@RequestBody CalculatorInput input) {
