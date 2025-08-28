@@ -3,6 +3,8 @@ package com.example.calculator.model;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.NotBlank;
 
+//Changes
+
 public class CalculatorInput {
 
     @NotNull(message = "Number 1 cannot be null")
